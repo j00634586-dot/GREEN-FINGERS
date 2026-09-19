@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Green Fingers - AI Agriculture</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🌱
+            </div>
+
+            <div>
+                <h1>Green Fingers</h1>
+                <p>AI-Powered Crop Doctor</p>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#dashboard" class="nav-link active">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#history" class="nav-link">
+                <span>◷</span>
+                <span>Scan History</span>
+            </a>
+
+            <a href="#knowledge" class="nav-link">
+                <span>▤</span>
+                <span>Knowledge Base</span>
+            </a>
+
+            <a href="#faqs" class="nav-link">
+                <span>❓</span>
+                <span>Farmer FAQs</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="farmer-icon">
+                👨‍🌾
+            </div>
+
+            <p>
+                AI-powered agricultural decision
+                support for healthier crops.
+            </p>
+
+            <div class="sidebar-name">
+                Green Fingers
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content" id="dashboard">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="top-label">
+                SMART FARMING • GREEN FINGERS
+            </div>
+
+            <div class="top-actions">
+
+                <button class="language-btn" id="languageBtn">
+                    🌐 हिंदी
+                </button>
+
+                <span class="online-status">
+                    ● Online
+                </span>
+
+                <span class="profile">
+                    👨‍🌾
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    INTERPRETABLE AI FOR AGRICULTURE
+                </span>
+
+                <h2>
+                    Detect. Explain. Protect.
+                </h2>
+
+                <p>
+                    Upload a farmer-captured crop leaf image and get
+                    an AI-assisted prediction, visual evidence,
+                    treatment guidance and weather-based outbreak risk.
+                </p>
+
+
+                <div class="hero-tags">
+
+                    <span>✓ Image Classification</span>
+
+                    <span>✓ Explainable AI</span>
+
+                    <span>✓ Treatment Advisory</span>
+
+                    <span>✓ Regional Alert</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-illustration">
+
+                <div class="sun"></div>
+
+                <div class="hill"></div>
+
+                <div class="farmer">
+                    👨‍🌾
+                </div>
+
+                <div class="hero-text">
+                    Healthy Plants<br>
+                    <strong>Prosperous Farmers</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ◎
+                </div>
+
+                <div>
+                    <small>SCANS TODAY</small>
+                    <strong id="scanCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ✦
+                </div>
+
+                <div>
+                    <small>CONFIDENCE</small>
+                    <strong id="confidenceStat">--</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⚠
+                </div>
+
+                <div>
+                    <small>WEATHER RISK</small>
+                    <strong id="riskStat">Medium</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ▤
+                </div>
+
+                <div>
+                    <small>KB GUIDES</small>
+                    <strong>42</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAIN 3 CARDS ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- UPLOAD -->
+
+            <div class="card upload-card">
+
+                <div class="card-heading">
+
+                    <div class="number green-number">
+                        1
+                    </div>
+
+                    <div>
+                        <h3>Upload Crop Leaf</h3>
+                        <p>JPG / PNG / WEBP • Maximum 5 MB</p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="upload-area"
+                    id="uploadArea"
+                >
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/png,image/jpeg,image/webp"
+                        hidden
+                    >
+
+                    <div id="uploadDefault">
+
+                        <div class="upload-icon">
+                            📷
+                        </div>
+
+                        <h4>
+                            Upload crop image
+                        </h4>
+
+                        <p>
+                            Drag & drop your leaf image here
+                        </p>
+
+                        <button
+                            class="browse-btn"
+                            id="browseBtn"
+                            type="button"
+                        >
+                            Choose Image
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="preview-box"
+                        id="previewBox"
+                        style="display:none;"
+                    >
+
+                        <img
+                            id="previewImage"
+                            src=""
+                            alt="Crop Preview"
+                        >
+
+                        <div class="file-info">
+
+                            <strong id="fileName">
+                                crop-image.jpg
+                            </strong>
+
+                            <span id="fileSize">
+                                0 KB
+                            </span>
+
+                            <button
+                                type="button"
+                                id="removeImage"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="analyze-btn"
+                    id="analyzeBtn"
+                    type="button"
+                    disabled
+                >
+                    🔍 Analyze Crop with AI
+                </button>
+
+                <p class="helper-text">
+                    AI will analyze visible crop-leaf patterns.
+                </p>
+
+            </div>
+
+
+            <!-- AI DIAGNOSIS -->
+
+            <div class="card diagnosis-card">
+
+                <div class="card-heading">
+
+                    <div class="number blue-number">
+                        2
+                    </div>
+
+                    <div>
+                        <h3>AI Diagnosis</h3>
+                        <p>Prediction + confidence</p>
+                    </div>
+
+                    <span class="ai-badge">
+                        AI MODEL
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="diagnosis-result"
+                    id="diagnosisResult"
+                >
+
+                    <div class="diagnosis-icon">
+                        🌿
+                    </div>
+
+                    <div class="diagnosis-text">
+
+                        <small>
+                            Predicted Category
+                        </small>
+
+                        <strong id="diseaseName">
+                            Awaiting Image
+                        </strong>
+
+                        <span id="cropName">
+                            Upload a crop leaf
+                        </span>
+
+                    </div>
+
+                    <div class="confidence-circle">
+
+                        <span id="confidenceValue">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    class="diagnosis-description"
+                    id="diagnosisDescription"
+                >
+                    Upload an image to receive an
+                    AI-assisted crop health analysis.
+                </p>
+
+
+                <div class="why-box">
+
+                    <h4>
+                        🔎 Why the AI indicates this
+                    </h4>
+
+                    <ul id="evidenceList">
+
+                        <li>
+                            Waiting for image analysis
+                        </li>
+
+                        <li>
+                            Visual features will appear here
+                        </li>
+
+                        <li>
+                            Disease pattern information
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLAINABLE AI -->
+
+            <div class="card explain-card">
+
+                <div class="card-heading">
+
+                    <div class="number purple-number">
+                        3
+                    </div>
+
+                    <div>
+                        <h3>Explainable AI</h3>
+                        <p>Visual features behind prediction</p>
+                    </div>
+
+                </div>
+
+
+                <div class="heatmap-container">
+
+                    <div
+                        class="heatmap-placeholder"
+                        id="heatmapPlaceholder"
+                    >
+
+                        <div class="heatmap-icon">
+                            🔬
+                        </div>
+
+                        <p>
+                            Upload and analyze an image
+                            to see visual evidence.
+                        </p>
+
+                    </div>
+
+
+                    <img
+                        id="heatmapImage"
+                        class="heatmap-image"
+                        src=""
+                        alt="AI Evidence"
+                        style="display:none;"
+                    >
+
+                </div>
+
+
+                <div class="evidence-box">
+
+                    <strong>
+                        💡 AI Evidence
+                    </strong>
+
+                    <p id="aiEvidence">
+                        The system will identify visible
+                        patterns related to discoloration,
+                        texture and localized leaf changes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TREATMENT + WEATHER ================= -->
+
+        <section class="two-column">
+
+
+            <!-- TREATMENT -->
+
+            <div class="card treatment-card">
+
+                <div class="card-heading">
+
+                    <div class="number teal-number">
+                        4
+                    </div>
+
+                    <div>
+                        <h3>Treatment Advisory</h3>
+                        <p>
+                            AI output and expert guidance are clearly separated.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="advisory-grid">
+
+
+                    <div class="advisory-box ai-advisory">
+
+                        <span class="advisory-label">
+                            🤖 AI PREDICTION
+                        </span>
+
+                        <h4 id="aiTreatmentTitle">
+                            Awaiting diagnosis
+                        </h4>
+
+                        <ul id="aiAdviceList">
+
+                            <li>
+                                Upload and analyze a crop image first.
+                            </li>
+
+                            <li>
+                                Review the visual evidence.
+                            </li>
+
+                            <li>
+                                Consider local field conditions.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="advisory-box expert-advisory">
+
+                        <span class="advisory-label">
+                            📚 EXPERT / KNOWLEDGE BASE
+                        </span>
+
+                        <h4>
+                            Curated Advisory
+                        </h4>
+
+                        <ul>
+
+                            <li>
+                                Use disease-free planting material.
+                            </li>
+
+                            <li>
+                                Remove severely affected leaves safely.
+                            </li>
+
+                            <li>
+                                Improve air circulation.
+                            </li>
+
+                            <li>
+                                Use only locally approved products
+                                according to their label.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="safety-note">
+                    ⚡ Safety: This is decision-support,
+                    not a replacement for a local agriculture expert.
+                </div>
+
+            </div>
+
+
+            <!-- WEATHER -->
+
+            <div class="card weather-card">
+
+                <div class="card-heading">
+
+                    <div class="number orange-number">
+                        5
+                    </div>
+
+                    <div>
+                        <h3>Weather Risk Alert</h3>
+                        <p>
+                            Conditions associated with outbreak risk
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-inputs">
+
+                    <div>
+
+                        <label>
+                            Temperature
+                        </label>
+
+                        <input
+                            type="number"
+                            id="temperature"
+                            value="28"
+                            min="-10"
+                            max="60"
+                        >
+
+                        <small>°C</small>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Humidity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="humidity"
+                            value="82"
+                            min="0"
+                            max="100"
+                        >
+
+                        <small>%</small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="weather-btn"
+                    id="weatherBtn"
+                    type="button"
+                >
+                    Check Regional Risk
+                </button>
+
+
+                <div
+                    class="weather-result"
+                    id="weatherResult"
+                >
+
+                    <strong id="weatherTitle">
+                        ⚠ HIGH OUTBREAK RISK
+                    </strong>
+
+                    <p id="weatherMessage">
+                        उच्च आर्द्रता और अनुकूल तापमान के कारण
+                        फसल रोग का जोखिम बढ़ सकता है।
+                        नियमित रूप से फसल की निगरानी करें।
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <section
+            class="card history-card"
+            id="history"
+        >
+
+            <div class="card-heading">
+
+                <div class="number gray-number">
+                    6
+                </div>
+
+                <div>
+                    <h3>Recent Scan History</h3>
+                    <p>
+                        Previous crop analyses
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Crop</th>
+                            <th>Prediction</th>
+                            <th>Confidence</th>
+                            <th>Risk</th>
+                            <th>Time</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="historyBody">
+
+                        <tr>
+                            <td colspan="5" class="empty-history">
+                                No scans yet. Upload your first crop image.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= KNOWLEDGE BASE ================= -->
+
+        <section
+            class="card knowledge-card"
+            id="knowledge"
+        >
+
+            <div class="knowledge-content">
+
+                <div>
+
+                    <span class="hero-label">
+                        GREEN FINGERS KNOWLEDGE BASE
+                    </span>
+
+                    <h2>
+                        Smarter decisions for healthier crops.
+                    </h2>
+
+                    <p>
+                        Use AI-assisted image analysis together with
+                        field observations, weather conditions and
+                        expert agricultural guidance.
+                    </p>
+
+                </div>
+
+
+                <div class="knowledge-items">
+
+                    <div>
+                        🌱
+                        <strong>Crop Health</strong>
+                        <span>Visual crop monitoring</span>
+                    </div>
+
+                    <div>
+                        🔬
+                        <strong>AI Evidence</strong>
+                        <span>Understand the prediction</span>
+                    </div>
+
+                    <div>
+                        🌦️
+                        <strong>Weather Risk</strong>
+                        <span>Monitor outbreak conditions</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FAQ ================= -->
+
+        <section
+            class="card faq-section"
+            id="faqs"
+        >
+
+            <div class="card-heading">
+
+                <div class="number green-number">
+                    7
+                </div>
+
+                <div>
+                    <h3>Farmer FAQs</h3>
+                    <p>
+                        Common questions about crop health and diagnosis.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="faq-container">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            1. Which crop and variety are you growing?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Please mention the crop you are growing,
+                            such as Tomato, Potato, Rice, Wheat or Cotton.
+                            If you know the variety, mention it because
+                            different varieties can show different symptoms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 2 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            2. What symptoms are you seeing on the plant?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Describe symptoms such as yellow leaves,
+                            brown spots, black spots, curling, wilting,
+                            holes, white powder or discoloration.
+                            You can also upload a clear leaf image.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 3 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            3. When did you first notice the symptoms?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Tell us approximately when the symptoms first
+                            appeared, for example today, 3 days ago,
+                            one week ago or more than two weeks ago.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 4 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            4. How much of your field is affected?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Mention whether only a few plants, one section,
+                            half of the field or most of the field is affected.
+                            This helps estimate the severity of the problem.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 5 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            5. What has the weather been like recently?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Mention recent rain, humidity, heat, cold,
+                            strong winds or unusual weather changes.
+                            High humidity and prolonged leaf wetness can
+                            increase the risk of several crop diseases.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 6 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            6. Have you already used any pesticide,
+                            fertilizer or treatment?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Mention the product or treatment used,
+                            the quantity if known and when it was applied.
+                            This helps avoid unnecessary repeated treatments.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 7 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            7. Can Green Fingers identify crop disease
+                            from an image?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Green Fingers provides AI-assisted analysis
+                            of an uploaded crop-leaf image along with
+                            prediction, confidence, visual evidence and
+                            treatment guidance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 8 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            8. What should I do after getting an AI diagnosis?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Review the AI evidence, treatment advisory
+                            and weather risk. For important treatment
+                            decisions, verify the result with a local
+                            agriculture expert.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 9 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            9. Why does Green Fingers show confidence?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Confidence represents how strongly the system
+                            matches visible image features with a detected
+                            category. A confidence score does not guarantee
+                            that the diagnosis is correct.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 10 -->
+
+                <div class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        type="button"
+                    >
+
+                        <span>
+                            10. What if my uploaded image is unclear?
+                        </span>
+
+                        <span class="faq-icon">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Upload a clear, well-lit image of the affected
+                            leaf. Avoid blurry images, extreme shadows
+                            and images where the leaf is too small.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <span>
+                🌱 Better Decisions
+            </span>
+
+            <span>
+                ♡ Healthier Crops
+            </span>
+
+            <span>
+                👨‍🌾 Stronger Farmers
+            </span>
+
+            <strong>
+                Green Fingers
+            </strong>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    <span id="toastMessage">
+        Done
+    </span>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
